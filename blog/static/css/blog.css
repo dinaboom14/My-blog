@@ -1,0 +1,82 @@
+* {
+    box-sizing:border-box;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    color: red;
+}
+body,
+html {
+    height: 100%;
+  margin: 0;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIEXvV_8j-A6MUI4TnQX-fgs_xdSTEhm_mTg&usqp=CAU");
+   background-size: cover;
+
+}
+
+h1 {
+    border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+    font-size: 40px
+}
+
+.date,
+.info {
+    color: grey;
+
+}
+
+.comment:nth-child(even) {
+    background-color: whitesmoke;
+
+}
+
+ .rightimg  {
+    float: right; /* Выравнивание по правому краю  */
+    margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+   }
+
+#content{
+    display: inline-block;
+  float: left;
+  padding: 20px;
+  height: auto;
+    font-family: "Comic Sans MS", sans-serif;
+}
+#sidebar {
+    display: inline-block;
+  float: right;
+  padding: 20px;
+  height: auto;
+    font-family: "Comic Sans MS", sans-serif;
+}
+#content {
+    width: 70%;
+
+}
+
+#sidebar {
+    width: 30%;
+    background: url("https://image.freepik.com/free-photo/_7636-136.jpg");
+   background-size: cover;
+     outline: 2px solid #000; /* Чёрная рамка */
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+}
+
+#heading {
+    font-family: Impact, sans-serif;
+   text-align: center;
+}
+
+ img {
+    border: 3px solid #00a8e1;
+   }

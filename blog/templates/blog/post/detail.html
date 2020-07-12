@@ -1,0 +1,57 @@
+{% extends "blog/base.html" %}  
+{% load blog_tags %}
+
+{% block title %}{{ post.title }}{% endblock %}  
+  
+{% block content %}  
+  <h1>{{ post.title }}</h1>  
+  <p class="date">  
+    Published {{ post.publish }} by {{ post.author }}  
+  </p>  
+ {% if post.image %}
+    <p><img width="auto" height="300" src="{{post.image.url}}"></p>
+{% else %}
+   <p></p>
+    {% endif %}
+    {{ post.body|markdown }}
+
+<hr align="left" width="1000" size="2"  />
+<h2>Похожие посты</h2>
+{% for post in similar_posts %}
+    <p>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </p>
+ {% empty %}
+    Здесь пока нет похожих постов.
+{% endfor %}
+<hr align="left" width="1000" size="2"  />
+    {% for comment in comments %}
+  <div class="comment">
+    <p class="info">
+      Comment {{ forloop.counter }} by {{ comment.name }}
+      {{ comment.created }}
+    </p>
+  {{ comment.body|linebreaks }}
+  </div>
+    {% empty %}
+  <p>Здесь пока нет комментариев.</p>
+    {% endfor %}
+
+    {% if new_comment %}
+  <h2>Ваш комментарий добавлен.</h2>
+{% else %}
+  <h2>Добавить комментарий</h2>
+  <form action="." method="post">
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Опубликовать"></p>
+  </form>
+    {% endif %}
+
+    {% with comments.count as total_comments %}
+  <h2>
+    {{ total_comments }} комментариев
+  </h2>
+    {% endwith %}
+
+{% endblock %}
